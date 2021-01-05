@@ -44,3 +44,5 @@ function formatDateAndReverse(day, month, year) {
 }
 
 console.log(palindrome("01-02-2020"));
+
+
