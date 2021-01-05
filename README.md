@@ -6,3 +6,5 @@ For example:
 RACECAR, 101 etc
 
 > This is an assignment for neog.camp by Tanay Pratap.
+
+Tech used are: HTML5, CSS3, JavaScript.

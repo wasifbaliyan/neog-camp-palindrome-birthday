@@ -1,3 +1,33 @@
+let btn = document.querySelector(".palindrome-btn");
+let loading = document.querySelector(".loading");
+let result = document.querySelector(".result");
+let form = document.querySelector(".form");
+let input = document.querySelector("#birthday");
+loading.style.display = "none";
+result.style.display = "none";
+
+btn.addEventListener("click", () => {
+  result.style.display = "none";
+});
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  loading.style.display = "block";
+  const date = input.value;
+  const isPalindrome = palindrome(date);
+  let text = "";
+  if (isPalindrome) {
+    text = "YAYYY! Your birthday is a palindrome. ";
+  } else {
+    text = "Nayy! Your birthday is not a palindrome. ";
+  }
+  result.innerHTML = "<h3>" + text + "</h3>";
+  setTimeout(() => {
+    loading.style.display = "none";
+    result.style.display = "block";
+  }, 3000);
+});
+
 function palindrome(date) {
   const { day, month, year } = getDayMonthYear(date);
   const {
@@ -42,7 +72,3 @@ function formatDateAndReverse(day, month, year) {
     formatThree,
   };
 }
-
-console.log(palindrome("01-02-2020"));
-
-
