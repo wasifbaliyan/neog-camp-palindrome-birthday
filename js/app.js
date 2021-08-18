@@ -14,13 +14,11 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   loading.style.display = "block";
   const date = input.value;
-  const isPalindrome = palindrome(date);
-  let text = "";
-  if (isPalindrome) {
-    text = "YAYYY! Your birthday is a palindrome. ";
-  } else {
-    text = "Nayy! Your birthday is not a palindrome. ";
-  }
+  const { day, month, year } = getDayMonthYear(date);
+  const allDateFormats = getAllDateFormats(day, month, year);
+  const palindromes = checkAllPalindromes(allDateFormats);
+  let text = palindromeCheckMessage(palindromes);
+
   result.innerHTML = "<h3>" + text + "</h3>";
   setTimeout(() => {
     loading.style.display = "none";
@@ -28,47 +26,54 @@ form.addEventListener("submit", (e) => {
   }, 3000);
 });
 
-function palindrome(date) {
-  const { day, month, year } = getDayMonthYear(date);
-  const {
-    reversedOne,
-    reversedTwo,
-    reversedThree,
-    formatOne,
-    formatTwo,
-    formatThree,
-  } = formatDateAndReverse(day, month, year);
-  if (
-    reversedOne === formatOne ||
-    reversedTwo === formatTwo ||
-    reversedThree === formatThree
-  ) {
-    return true;
-  } else {
-    return false;
-  }
+function checkAllPalindromes(arr) {
+  let isPalindrome = [];
+  arr.forEach((item) => {
+    if (palindrome(item)) {
+      isPalindrome.push(true);
+    } else {
+      isPalindrome.push(false);
+    }
+  });
+  return isPalindrome;
+}
+
+function palindrome(str) {
+  if (str === str.split("").reverse().join("")) return true;
+  return false;
 }
 
 function getDayMonthYear(date) {
+  let formattedDate = new Date(date);
+  let yearValue = String(formattedDate.getFullYear());
+  let monthValue = String(formattedDate.getMonth() + 1);
+  let dateValue = String(formattedDate.getDate());
+  if (monthValue < 10) {
+    monthValue = monthValue.padStart(2, "0");
+  }
+  if (dateValue < 10) {
+    dateValue = dateValue.padStart(2, "0");
+  }
+
   return {
-    day: date.slice(0, 2),
-    month: date.slice(3, 5),
-    year: date.slice(6),
+    day: dateValue,
+    month: monthValue,
+    year: yearValue,
   };
 }
-function formatDateAndReverse(day, month, year) {
-  const formatOne = month + day + year;
-  const formatTwo = day + month + year;
-  const formatThree = day + month + year.slice(2);
-  const reversedOne = formatOne.split("").reverse().join("");
-  const reversedTwo = formatTwo.split("").reverse().join("");
-  const reversedThree = formatThree.split("").reverse().join("");
-  return {
-    reversedOne,
-    reversedTwo,
-    reversedThree,
-    formatOne,
-    formatTwo,
-    formatThree,
-  };
+function getAllDateFormats(day, month, year) {
+  const formatOne = `${day}${month}${year}`;
+  const formatTwo = `${month}${day}${year}`;
+  const formatThree = `${year}${month}${day}`;
+  const formatFour = `${day}${month}${year.slice(2)}`;
+  const formatFive = `${month}${day}${year.slice(2)}`;
+  const formatSix = `${year.slice(2)}${month}${day}`;
+  return [formatOne, formatTwo, formatThree, formatFour, formatFive, formatSix];
+}
+
+function palindromeCheckMessage(arr) {
+  if (arr.some((item) => item === true)) {
+    return "YAYYY! Your birthday is a palindrome. ";
+  }
+  return "Nayy! Your birthday is not a palindrome. ";
 }

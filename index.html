@@ -1,82 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/assets/logo.webp" type="image/webp" sizes="16x16">
-    <link rel="stylesheet" href="/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/assets/logo.webp" type="image/webp" sizes="16x16" />
+    <link rel="stylesheet" href="/css/style.css" />
     <title>Palindrome Birthday</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header class="header-container">
-        <div class="header">
-            <div class="name-container">
-                <h3 class="name">Wasif Baliyan</h3>
-            </div>
-            <div class="logo">
-                <img class="logo-img" src="/assets/logo.webp" alt="logo">
-            </div>
-            <div class="navbar">
-                <nav class="nav">
-                    <a href="https://wasifbaliyan.com" class="link ">about me</a>
-                    <a href="https://twitter.com/wasifbaliyan" class=" link-btn">contact me</a>
-                </nav>
-            </div>
+      <div class="header">
+        <div class="name-container">
+          <h3 class="name">Wasif Baliyan</h3>
         </div>
+        <div class="logo">
+          <img class="logo-img" src="/assets/logo.webp" alt="logo" />
+        </div>
+        <div class="navbar">
+          <nav class="nav">
+            <a href="https://wasifbaliyan.com" class="link">about me</a>
+            <a href="https://twitter.com/wasifbaliyan" class="link-btn"
+              >contact me</a
+            >
+          </nav>
+        </div>
+      </div>
     </header>
     <main class="main">
-        <section class="hero">
-            <div class="text-container">
-                <h1 class="text-heading">
-                    <span class="heading-special">Palindrome</span> Birthday <span
-                        class="heading-special">Checker</span> is here
-                </h1>
+      <section class="hero">
+        <div class="text-container">
+          <h1 class="text-heading">
+            Is Your Birthday
+            <span class="heading-special">Palindrome?</span>
+            <!-- <span class="heading-special">Checker</span>  -->
+          </h1>
 
-                <div class="text-body">
-                    <p class="text-desc">This is an app to check if your birth date is a palindrome or not. Palidrome is
-                        a number which is same after reversing.</p>
-                    <a href="#palindrome" class="hero-btn">Check out Now</a>
-                </div>
+          <div class="text-body">
+            <p class="text-desc">
+              This is an app to check if your birth date is a palindrome or not.
+              Palidrome is a number which is exactly same after reversing its
+              order.
+            </p>
+            <div class="btn-container">
+              <a href="#palindrome" class="hero-btn">Check out Now</a>
             </div>
-            <div class="img-container">
-                <img class="hero-img" src="/assets/happy.png" alt="Birthday happy person">
+          </div>
+        </div>
+        <div class="img-container">
+          <img
+            class="hero-img"
+            src="/assets/happy.png"
+            alt="Birthday happy person"
+          />
+        </div>
+      </section>
+      <section id="palindrome" class="palindrome">
+        <div class="palindrome-body">
+          <h1 class="palindrome-heading">Palindrome Calculator</h1>
+          <form class="form">
+            <div class="input">
+              <label for="birthday" class="label">Enter Your Birthday:</label>
+              <input required type="date" id="birthday" />
             </div>
-        </section>
-        <section id="palindrome" class="palindrome">
-            <div class="palindrome-body">
-                <h1 class="palindrome-heading">Palindrome Calculator</h1>
-                <form class="form">
-                    <div class="input">
-                        <label for="birthday" class="label">Enter Your Birthday:</label>
-                        <input required type="date" id="birthday">
-                    </div>
-                    <button class="palindrome-btn">Submit</button>
-                    <div class="loading">
-                        <img src="/assets/heart.gif" alt="gif">
-                    </div>
+            <button class="palindrome-btn">Submit</button>
+            <div class="loading">
+              <img src="/assets/heart.gif" alt="gif" />
+            </div>
 
-                    <div class="result"></div>
-                </form>
-            </div>
-        </section>
+            <div class="result"></div>
+          </form>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
-        <div class="footer-bottom">
-            <ul class="list">
-                <li class="list-item"><a href="https://twitter.com/wasifbaliyan" class="list-link">Twitter</a></li>
-                <li class="list-item"><a href="https://linkedin.com/in/wasifbaliyan" class="list-link">LinkedIn</a></li>
-                <li class="list-item"><a href="https://instagram.com/wasifbaliyan" class="list-link">Instagram</a></li>
-                <li class="list-item"><a href="https://wasifbaliyan.netlify.app" class="list-link">Portfolio</a></li>
-            </ul>
-            <div class="copyright">
-                &copy;2021 wasifbaliyan
-            </div>
-        </div>
+      <div class="footer-bottom">
+        <ul class="list">
+          <li class="list-item">
+            <a href="https://twitter.com/wasifbaliyan" class="list-link"
+              >Twitter</a
+            >
+          </li>
+          <li class="list-item">
+            <a href="https://linkedin.com/in/wasifbaliyan" class="list-link"
+              >LinkedIn</a
+            >
+          </li>
+          <li class="list-item">
+            <a href="https://instagram.com/wasifbaliyan" class="list-link"
+              >Instagram</a
+            >
+          </li>
+          <li class="list-item">
+            <a href="https://wasifbaliyan.netlify.app" class="list-link"
+              >Portfolio</a
+            >
+          </li>
+        </ul>
+        <div class="copyright">&copy;2021 wasifbaliyan</div>
+      </div>
     </footer>
     <script src="/js/app.js"></script>
-</body>
-
+  </body>
 </html>
