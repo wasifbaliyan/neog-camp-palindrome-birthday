@@ -248,6 +248,12 @@ input:focus {
   color: var(--text-color);
 }
 
+.helper {
+  width: 300px;
+  margin: 0 auto;
+  font-size: small;
+  color: #555;
+}
 /* MEDIA QUERIES */
 
 @media (max-width: 576px) {
